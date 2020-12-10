@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Weather</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+        <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+        <script src="https://storage.googleapis.com/code.getmdl.io/1.1.3/material.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="css/weatherapp.css" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <link rel="shortcut icon" sizes="196x196" href="images/icon.png" />
+        <link rel="apple-touch-icon-precomposed" href="images/icon.png" />
+        <!-- Mapbox GL JS API -->
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+    </head>
+    
+    <body onload = "initMap()">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+          <header class="mdl-layout__header">
+              <button onclick="location.href = 'index.html';" class="mdl-layout-icon mdl-button mdl-js-button mdl-button--icon"> 
+                <i class="material-icons">arrow_back</i>
+              </button>
+            <div class="mdl-layout__header-row">
+              <span class="mdl-layout-title" id="headerBarTitle"></span>
+            </div>
+              
+          </header>
+
+          <main class="mdl-layout__content">
+            <div class="content-grid mdl-grid">
+              <div class="mdl-cell">
+                 
+                <!-- Main page content -->  
+            <div id="map"></div>
+                  
+             <p style="width:300px">
+  <input class="mdl-slider mdl-js-slider" id="slider" type="range" step="1" oninput="sliderChange(this.value)" >
+                  Weather: <output id="sliderdate"></output>
+                  </p>    
+               <div id="summary">Summary:</div>
+                  <div id="minTemp">Minimum Temperature:</div>
+                  <div id="maxTemp">Maximum Temperature:</div>
+                  <div id="humidity">Humidity:</div>
+                  <div id="windSpeed">Wind Speed:</div>
+                  <br><button class="mdl-button mdl-js-button mdl-button--raised" onClick="LocationWeatherCache.removeLocationAtIndex()">Remove This Location</button>
+                </div>
+              </div>
+          </main>    
+        </div>
+
+        <!--   JavaScript files:   -->
+        <script src="js/locationWeatherCache.js"></script>
+        <script src="js/viewLocationPage.js"></script>
+        <script src="js/mainPage.js"></script>
+        <script src="js/addlocationPage.js"></script>
+        </body>
+</html>
